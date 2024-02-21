@@ -47,4 +47,16 @@ test('renders input info', () => {
   render(<App />);
   const inputInfoElement = screen.getByText(/Please select the information you would like and enter the country you would like the know about, then click the search button./i);
   expect(inputInfoElement).toBeInTheDocument();
-})
+});
+
+test('renders capital output select', () => {
+  render(<App />);
+  const capitalOutputSelectElement = screen.getByText(/Capital city/i);
+  expect(capitalOutputSelectElement).toBeInTheDocument();
+});
+
+test('renders currency output select', () => {
+  render(<App />);
+  const currencyOutputSelectElement = screen.getByText(/Currency/i);
+  expect(currencyOutputSelectElement).toBeInTheDocument();
+});
