@@ -8,6 +8,8 @@ import CityImage from "./Components/CityImage";
 import LangImage from "./Components/LangImage";
 import InputInfo from "./Components/InputInfo";
 import OutputSelect from "./Components/OutputSelect";
+import CountryInput from './Components/CountryInput';
+import SearchButton from './Components/SearchButton';
 
 test('renders header', () => {
   render(<Header />);
@@ -67,4 +69,28 @@ test('renders currency output select', () => {
   render(<OutputSelect />);
   const currencyOutputSelectElement = screen.getByText(/Currency/i);
   expect(currencyOutputSelectElement).toBeInTheDocument();
+});
+
+test('renders language output select', () => {
+  render(<OutputSelect />);
+  const languageOutputSelectElement = screen.getByText(/Language/i);
+  expect(languageOutputSelectElement).toBeInTheDocument();
+});
+
+test('renders calling code output select', () => {
+  render(<OutputSelect />);
+  const codeOutputSelectElement = screen.getByText(/Calling code/i);
+  expect(codeOutputSelectElement).toBeInTheDocument();
+});
+
+test('renders country input bar', () => {
+  render(<CountryInput />);
+  const countryInputElement = screen.getByPlaceholderText(/Enter a country/i);
+  expect(countryInputElement).toBeInTheDocument();
+});
+
+test('renders search button', () => {
+  render(<SearchButton />);
+  const searchButtonElement = screen.getByText(/Search/i);
+  expect(searchButtonElement).toBeInTheDocument();
 });
