@@ -135,3 +135,66 @@ test('searching Finland with no radio' , async () => {
 
   expect(outputText).toBeInTheDocument();
 });
+
+test('searching Finland with currency radio', async () => {
+  render(<OutputSelect />);
+  render(<CountryInput />);
+  render(<SearchButton />);
+  render(<Output />);
+
+  const optionSelect = screen.getByLabelText(/Currency/i);
+  fireEvent.click(optionSelect);
+
+  const input = screen.getByPlaceholderText(/Enter a country/i);
+  fireEvent.change(input, {target: {value: 'Finland'}});
+  
+  const searchButton = screen.getByText(/Search/i);
+  fireEvent.click(searchButton);
+
+  await screen.findByText(/The currency of Finland is the Euro/i);
+
+  const outputText = screen.getByText(/The currency of Finland is the Euro/i);
+  expect(outputText).toBeInTheDocument();
+});
+
+test('searching Finland with language radio', async () => {
+  render(<OutputSelect />);
+  render(<CountryInput />);
+  render(<SearchButton />);
+  render(<Output />);
+
+  const optionSelect = screen.getByLabelText(/Language/i);
+  fireEvent.click(optionSelect);
+
+  const input = screen.getByPlaceholderText(/Enter a country/i);
+  fireEvent.change(input, {target: {value: 'Finland'}});
+  
+  const searchButton = screen.getByText(/Search/i);
+  fireEvent.click(searchButton);
+
+  await screen.findByText(/The language of Finland is Finnish/i);
+
+  const outputText = screen.getByText(/The language of Finland is Finnish/i);
+  expect(outputText).toBeInTheDocument();
+});
+
+test('searching Finland with calling code radio', async () => {
+  render(<OutputSelect />);
+  render(<CountryInput />);
+  render(<SearchButton />);
+  render(<Output />);
+
+  const optionSelect = screen.getByLabelText(/Calling code/i);
+  fireEvent.click(optionSelect);
+
+  const input = screen.getByPlaceholderText(/Enter a country/i);
+  fireEvent.change(input, {target: {value: 'Finland'}});
+  
+  const searchButton = screen.getByText(/Search/i);
+  fireEvent.click(searchButton);
+
+  await screen.findByText(/The calling code of Finland is \+3/i);
+
+  const outputText = screen.getByText(/The calling code of Finland is \+3/i);
+  expect(outputText).toBeInTheDocument();
+})
