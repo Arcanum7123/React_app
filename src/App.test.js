@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Logo from './Components/Logo';
 import Header from './Components/Header';
 import Subhead from "./Components/Subhead";
@@ -10,6 +10,11 @@ import InputInfo from "./Components/InputInfo";
 import OutputSelect from "./Components/OutputSelect";
 import CountryInput from './Components/CountryInput';
 import SearchButton from './Components/SearchButton';
+import Output from './Components/Output';
+
+import SakilaHeader from './Components/Sakila/SakilaHeader';
+import SakilaInputBar from './Components/Sakila/SakilaInputBar';
+import SakilaSearchButton from './Components/Sakila/SakilaSearchButton';
 
 test('renders header', () => {
   render(<Header />);
@@ -93,4 +98,40 @@ test('renders search button', () => {
   render(<SearchButton />);
   const searchButtonElement = screen.getByText(/Search/i);
   expect(searchButtonElement).toBeInTheDocument();
+});
+
+test('renders sakila header', () => {
+  render(<SakilaHeader />);
+  const sakilaHeaderElement = screen.getByText(/Film and actor database/i);
+  expect(sakilaHeaderElement).toBeInTheDocument();
+});
+
+test('renders sakila input bar', () => {
+  render(<SakilaInputBar />);
+  const sakilaInputBarElement = screen.getByPlaceholderText(/Enter details/i);
+  expect(sakilaInputBarElement).toBeInTheDocument();
+});
+
+test('renders sakila search button', () => {
+  render(<SakilaSearchButton />);
+  const sakilaSearchButtonElement = screen.getByText(/Go/i);
+  expect(sakilaSearchButtonElement).toBeInTheDocument();
+});
+
+test('searching Finland with no radio' , async () => {
+  render(<CountryInput />);
+  render(<SearchButton />);
+  render(<Output />);
+
+  const input = screen.getByPlaceholderText(/Enter a country/i);
+  fireEvent.change(input, {target: {value: 'Finland'}});
+
+  const searchButton = screen.getByText(/Search/i);
+  fireEvent.click(searchButton);
+
+  await screen.findByText(/The capital of Finland is Helsinki/i);
+
+  const outputText = screen.getByText(/The capital of Finland is Helsinki/i);
+
+  expect(outputText).toBeInTheDocument();
 });
