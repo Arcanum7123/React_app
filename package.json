@@ -13,12 +13,7 @@
     "styled-components": "^6.1.8",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+ 
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -36,5 +31,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "<current-version>",
+    "@babel/preset-react": "<current-version>",
+    "babel-jest": "<current-version>",
+    "jest": "<current-version>",
+    "react-test-renderer": "<current-version>"
+  },
+  "scripts": {
+    "test": "jest"
   }
 }
