@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import debounce from "debounce";
+import { baseURL } from "./config.ts";
 
 export default function SakilaRemoveCategoryOutput({filmTitle, removeGenre}) {
     const [response, setResponse] = useState("Idle");
     useEffect( debounce(() => {
         if (filmTitle === "" || removeGenre === "") {return}
         setResponse("Loading");
-        fetch(`http://localhost:8080/home/removeFrom/category/${removeGenre}/film/${filmTitle}`, {method: "DELETE"})
+        fetch(`${baseURL}/removeFrom/category/${removeGenre}/film/${filmTitle}`, {method: "DELETE"})
             .then((res) => {setResponse(res.ok? "Loaded" : "Failed")});
     }, 200), [removeGenre]);
     if (response === "Idle") {

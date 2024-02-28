@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import debounce from "debounce";
+import { baseURL } from "./config.ts";
 
 export default function SakilaRatingOutput({filmTitle, newRating}) {
     const allowedRatings = ["G", "PG", "PG-13", "R", "NC-17"];
@@ -7,7 +8,7 @@ export default function SakilaRatingOutput({filmTitle, newRating}) {
     useEffect( debounce( () => {
         if (filmTitle === "" || newRating === "" || !(allowedRatings.includes(newRating.toUpperCase()))) {return}
         setResponse("Loading");
-        fetch(`http://localhost:8080/home/updateRating/${filmTitle}/${newRating}`, {method: "PUT"})
+        fetch(`${baseURL}/updateRating/${filmTitle}/${newRating}`, {method: "PUT"})
             .then((res) => {setResponse(res.ok? "Loaded" : "Failed")});
     }, 200), [newRating]);
     if (response === "Idle") {

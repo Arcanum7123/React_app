@@ -75,7 +75,7 @@ export default function Page() {
       <SakilaUpdateRateInput filmTitle = {filmTitle} setFilmTitle = {setFilmTitle} newRating = {newRating} setNewRating = {setNewRating} selectedOutput = {selectedOutput} setSelectedOutput = {setSelectedOutput} />
       <SakilaAddCategoryInput filmTitle = {filmTitle} setFilmTitle = {setFilmTitle} newGenre = {newGenre} setNewGenre = {setNewGenre} selectedOutput = {selectedOutput} setSelectedOutput = {setSelectedOutput} />
       <SakilaRemoveCategoryInput filmTitle = {filmTitle} setFilmTitle = {setFilmTitle} removeGenre = {removeGenre} setRemoveGenre = {setRemoveGenre} selectedOutput = {selectedOutput} setSelectedOutput = {setSelectedOutput} />
-      {selectedOutput === "Show" && <SakilaOutput usedCategory = {usedCategory} />}
+      {selectedOutput === "Show" && <SakilaOutput usedCategory = {usedCategory}  />}
       {selectedOutput === "Update" && <SakilaRatingOutput filmTitle = {filmTitle} newRating = {newRating} />}
       {selectedOutput === "Add" && <SakilaGenreOutput filmTitle = {filmTitle} newGenre = {newGenre} />}
       {selectedOutput === "Remove" && <SakilaRemoveCategoryOutput filmTitle = {filmTitle} removeGenre = {removeGenre} />}

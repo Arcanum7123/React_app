@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import debounce from "debounce";
+import { baseURL } from "./config.ts";
 
 export default function SakilaOutput({usedCategory}) {
     const [films, setFilms] = useState([]);
     useEffect( debounce( () => {
         if (usedCategory === "") {return}
-        fetch(`http://localhost:8080/home/filmsInCategory/${usedCategory}`, {method: "GET"})
+        fetch(`${baseURL}/filmsInCategory/${usedCategory}`, {method: "GET"})
             .then((res) => res.json())
             .then((films) => setFilms(films));
     }, 100), [usedCategory]);
