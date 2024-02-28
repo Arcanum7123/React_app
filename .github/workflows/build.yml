@@ -22,7 +22,7 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Whatever
-        run: li coverage
+        run: ls coverage
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
