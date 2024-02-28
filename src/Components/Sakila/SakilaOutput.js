@@ -1,3 +1,17 @@
-export default function SakilaOutput() {
-    return <div id="SakilaOutput"></div>;
+import { useEffect, useState } from "react";
+import debounce from "debounce";
+
+export default function SakilaOutput({usedCategory}) {
+    const [films, setFilms] = useState([]);
+    useEffect( debounce( () => {
+        if (usedCategory === "") {return}
+        fetch(`http://localhost:8080/home/filmsInCategory/${usedCategory}`, {method: "GET"})
+            .then((res) => res.json())
+            .then((films) => setFilms(films));
+    }, 100), [usedCategory]);
+    return (<div className="SakilaOutput" data-testid="GenreList" id="GenreOutput">
+        {films.map(
+            record => <li key={record}><b>{record}</b></li>
+          )}
+    </div>);
 }

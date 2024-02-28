@@ -1,6 +1,6 @@
 * {
   margin: 5px;
-  background-color: rgb(54, 54, 54);
+  background-color: rgb(109, 109, 109);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: rgb(204, 204, 204);
 }
@@ -23,6 +23,7 @@
 
 .Art {
   height: 250px;
+  margin-top: 50px;
 }
 
 .LRot {
@@ -69,7 +70,7 @@ Input[type=text] {
   margin-left: 720px;
 }
 
-#SearchButton {
+input[type=submit] {
   background-color: rgb(163, 163, 163);
   padding: 5px 10px;
   cursor: pointer;
@@ -79,18 +80,18 @@ Input[type=text] {
   margin: 20px auto;
 }
 
-#SearchButton:hover {
+#SearchButton:hover, #SakilaSearchButton:hover {
   background-color: rgb(133, 133, 133);
 }
 
-#SearchOuter {
+.SakilaInput {
   display: flex;
   background-color: transparent;
   font: 16px;
   line-height: 34px;
   height: 34px;
-  padding: 5px 8px 0 16px;
-  margin: 20px auto;
+  padding: 5px 8px 5px 16px;
+  margin: 5px auto;
   width: 550px;
   border: none;
   border-radius: 20px;
@@ -103,24 +104,32 @@ Input[type=text] {
 }
 
 #SakilaHeader {
-  font-size: 30px;
+  font-size: 50px;
   text-align: center;
-  margin-top: 350px;
+  margin-top: -270px;
+  margin-bottom: 50px;
 }
 
 #FilmsIn {
   margin-left: 600px;
 }
 
-#SakilaSearchOuter {
-  display: flex;
+.SakilaSearchForm {
   background-color: transparent;
   font: 16px;
   line-height: 34px;
-  height: 34px;
   padding: 5px 8px 0 16px;
   margin: 20px auto;
   width: 550px;
   border: none;
   border-radius: 20px;
+}
+
+#SakilaInstructions {
+  text-align: center;
+  font-size: 24px;
+}
+
+.SakilaOutput {
+  text-align: center;
 }
