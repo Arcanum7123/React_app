@@ -1,16 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import CameraImage from './Components/Sakila/CameraImage';
-import FilmImage from './Components/Sakila/FilmImage';
-import SakilaAddCategoryInput from './Components/Sakila/SakilaAddCategoryInput';
-import SakilaGenreOutput from './Components/Sakila/SakilaGenreOutput';
-import SakilaHeader from './Components/Sakila/SakilaHeader';
-import SakilaInputBar from './Components/Sakila/SakilaInputBar';
-import SakilaInstruction from './Components/Sakila/SakilaInstruction';
-import SakilaOutput from './Components/Sakila/SakilaOutput';
-import SakilaRatingOutput from './Components/Sakila/SakilaRatingOutput';
-import SakilaRemoveCategoryInput from './Components/Sakila/SakilaRemoveCategoryInput';
-import SakilaRemoveCategoryOutput from './Components/Sakila/SakilaRemoveCategoryOutput';
-import SakilaUpdateRateInput from './Components/Sakila/SakilaUpdateRateInput';
+import CameraImage from './Components/CameraImage';
+import FilmImage from './Components/FilmImage';
+import SakilaAddCategoryInput from './Components/SakilaAddCategoryInput';
+import SakilaInputBar from './Components/SakilaInputBar';
+import SakilaOutput from './Components/SakilaOutput';
 
 import React from 'react';
 
